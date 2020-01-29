@@ -7,6 +7,27 @@ pip install coco-microsoft-bot-framework
 ```
 
 ### Setup:
+#### Setting Conversation State 
+in `app.py`, include the lines below.
+
+```python
+from coco_microsoft_bot_framework import CoCoActivityHandler
+from botbuilder.core import (
+    BotFrameworkAdapterSettings,
+    TurnContext,
+    BotFrameworkAdapter,
+    UserState,
+    MemoryStorage,
+    ConversationState,
+)
+
+MEMORY = MemoryStorage()
+CONVERSATION_STATE = ConversationState(MEMORY)
+# Create the Bot
+BOT = MyBot(CONVERSATION_STATE)
+```
+
+
 #### Setting Activity Handler
 in `bot.py`
 
